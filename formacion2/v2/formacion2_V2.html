@@ -324,20 +324,17 @@ a{color:var(--petrol)}
   <p class="foot">Simulación sobre tablas de ejemplo.</p>
 </div></section>
 
-<section class="slide" data-title="Vistas"><div class="wrap">
-  <p class="eyebrow">Vistas</p>
-  <h2>Una vista es una consulta con nombre</h2>
-  <p class="lead">No copia datos: guarda la pregunta. Cada vez que se consulta, se vuelve a ejecutar sobre las tablas.</p>
-  <div class="grid g2" style="align-items:start">
-    <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
-      <pre class="sql" id="vSql"></pre>
-      <div class="row"><button class="btn" id="vCreate">1 · Crear la vista</button><button class="btn ghost" id="vQuery" disabled>2 · Consultar la vista</button><button class="btn ghost" id="vNew" disabled>3 · Entra una candidatura nueva</button></div>
-      <p class="msg" id="vMsg"></p>
+<section class="slide full" data-title="Vistas"><div class="wrap">
+  <div><p class="eyebrow">Vistas</p><h2>Una vista es una consulta con nombre</h2></div>
+  <div class="journey">
+    <div class="stages" id="vwList"></div>
+    <div class="jdetail">
+      <div class="jdef" id="vwDef"></div>
+      <div class="jfig" id="vwFig"></div>
+      <div class="jsim" id="vwSim"></div>
     </div>
-    <div style="min-width:0"><pre class="sql" id="vSql2" style="margin-bottom:8px"></pre><div class="tbl-wrap"><table id="vRes"></table></div></div>
   </div>
-  <p class="note pet">Para qué: dar nombres claros, esconder columnas que no hacen falta y no repetir la misma consulta en cada informe.</p>
-  <p class="foot">Simulación con datos de ejemplo. La vista creada aparece luego en el explorador.</p>
+  <p class="foot">Esquemas con tablas de ejemplo.</p>
 </div></section>
 
 <section class="slide full" data-title="Modelo semántico"><div class="wrap">
@@ -741,6 +738,17 @@ const SV=(label,inner,vb)=>`<svg viewBox="${vb||'0 0 400 240'}" preserveAspectRa
   ['En el informe','Claro, coherente y accesible',ul(['Una idea por página y lo clave arriba a la izquierda.','Mismas escalas, ordenación y colores en todo el informe.','Texto alternativo con la conclusión, contraste mínimo 4,5:1 y no usar solo el color.','Pensado también para móvil.']),'Un cartel: se entiende de lejos y desde cualquier sitio.'],
   ['Al compartir','Gobierno y seguridad',ul(['Mínimo privilegio: cada persona, solo lo que necesita.','Distribuye con apps y asigna grupos de seguridad a los roles de RLS.','Promociona o certifica los modelos que otros van a reutilizar.','El ATS contiene datos de personas candidatas: consulta quién puede verlos antes de sacarlos del Warehouse.']),'Las llaves de un edificio: cada persona abre solo las puertas de su planta.']]})})();
 
+/* ====== V2: vistas ====== */
+(function(){const lines=(x,y,w,n)=>Array.from({length:n},(_,i)=>`<line class="ln" x1="${x+6}" y1="${y+16+i*14}" x2="${x+w-6}" y2="${y+16+i*14}"/>`).join('');
+ const svg=k=>{
+  if(k===0)return SV('Una consulta guardada con un nombre',Rc('acc',10,50,190,84)+Tx('m',20,74,'SELECT fase, COUNT(*)','start')+Tx('m',20,92,'FROM ats.candidaturas','start')+Tx('m',20,110,'GROUP BY fase;','start')+'<path class="ar" d="M204 92 H226"/>'+Rc('pet',228,70,164,44,22)+Tx('t',310,96,'v_candidaturas')+Tx('m',200,170,'la consulta se guarda con un nombre')+Tx('m',200,190,'y aparece junto a las tablas'))
+  if(k===1)return SV('La vista no guarda datos: se ejecuta al consultarla',Rc('box',10,36,112,124)+lines(10,36,112,6)+Rc('acc',16,128,100,16,3)+Tx('m',66,28,'tablas')+Tx('m',66,176,'llega una fila nueva')+'<path class="ar" d="M126 98 H150"/>'+Rc('box',152,62,92,72)+Tx('t',198,94,'vista')+Tx('m',198,112,'sin datos')+'<path class="ar" d="M246 98 H270"/>'+Rc('pet',272,36,118,124)+lines(272,36,118,6)+Rc('acc',278,128,106,16,3)+Tx('m',331,28,'resultado')+Tx('m',331,176,'ya incluye la nueva')+Tx('m',200,214,'cada consulta lee las tablas en ese momento'))
+  return SV('Muchos informes usan la misma vista',Rc('pet',10,74,120,52,26)+Tx('t',70,104,'la vista')+[0,1,2].map(i=>`<path class="ar" d="M132 100 L258 ${54+i*46}"/>`+Rc('box',260,36+i*46,130,36)+Tx('t',325,59+i*46,'Informe '+'ABC'[i])).join('')+[['nombres claros',10],['menos columnas',140],['una consulta',270]].map(c=>Rc('box',c[1],190,120,28,14)+Tx('m',c[1]+60,208,c[0])).join(''))};
+ journey({key:'Vistas',list:'#vwList',def:'#vwDef',fig:'#vwFig',sim:'#vwSim',svg,items:[
+  ['Qué es','Una consulta con nombre','<p>Una consulta guardada con un nombre. Se escribe una vez con <b>CREATE VIEW</b> y después se consulta como si fuera una tabla.</p>','Una receta guardada en el recetario con su propio nombre: no hace falta escribirla cada vez.'],
+  ['Qué no es','No es una copia de los datos','<p>No copia datos: guarda la pregunta. Cada vez que se consulta, se ejecuta de nuevo sobre las tablas, así que siempre refleja los datos actuales.</p>','Una ventana, no una fotografía: ves lo que hay en este momento.'],
+  ['Para qué sirve','Un criterio para todos','<p>Da nombres claros, esconde las columnas que no hacen falta y evita repetir la misma consulta en cada informe: todos usan el mismo criterio.</p>','El listado de cada lunes: todos lo piden por su nombre y reciben lo mismo.']]})})();
+
 /* ====== diapositiva 15: modelo semántico ====== */
 (function(){const cl=clientes.reduce((m,c)=>(m[c.cliente_id]=c,m),{});const tot=facturas.reduce((a,f)=>a+f.importe,0);
  const sec={};SECT.forEach(x=>sec[x]=0);facturas.forEach(f=>sec[cl[f.cliente_id].sector]+=f.importe);const tt=fmt(tot)+' €';
@@ -939,16 +947,6 @@ RC.forEach(([n,o])=>{const b=document.createElement('button');b.className='btn g
   fFix:[`SELECT SUM(importe_linea)\nFROM erp.lineas_factura;`,L.reduce((a,l)=>a+l.importe_linea,0),'Correcto otra vez: se suma la columna del lado de las líneas, que no se repite.']};
  function set(id){Object.keys(modes).forEach(k=>$('#'+k).classList.toggle('on',k===id));const m=modes[id];$('#fSql').innerHTML=hl(m[0]);$('#fRes').textContent=m[1];$('#fMsg').textContent=m[2];$('#fMsg').className='msg '+(id==='fBad'?'ko':'ok')}
  Object.keys(modes).forEach(k=>$('#'+k).onclick=()=>set(k));set('fOk')})();
-
-/* ====== vistas ====== */
-(function(){const vq={table:'ats.candidaturas',group:'fase',fn:'COUNT',cols:[],wcol:'',wop:'=',wval:'',ord:'total',dir:'DESC',top:0};
- const create=`CREATE VIEW ats.v_candidaturas_por_fase AS\nSELECT fase, COUNT(*) AS total\nFROM ats.candidaturas\nGROUP BY fase;`;
- $('#vSql').innerHTML=hl(create);
- const showQ=()=>{$('#vSql2').innerHTML=hl('SELECT *\nFROM ats.v_candidaturas_por_fase\nORDER BY total DESC;');const r=execute(vq);$('#vRes').innerHTML=htmlTable(r.cols,r.out)};
- $('#vCreate').onclick=()=>{VIEWS['ats.v_candidaturas_por_fase']={q:vq};$('#vMsg').innerHTML='<span class="ok">Vista creada: ats.v_candidaturas_por_fase.</span> No contiene datos, solo la consulta.';$('#vQuery').disabled=false;$('#vNew').disabled=false;$('#vCreate').disabled=true};
- $('#vQuery').onclick=showQ;
- $('#vNew').onclick=()=>{const id=8001+DB['ats.candidaturas'].rows.length;DB['ats.candidaturas'].rows.push({candidatura_id:id,oferta_id:301,candidato_id:7001,fuente:'Web propia',fase:'Cribado',resultado:'En curso'});
-  $('#vMsg').innerHTML=`<span class="ok">Entró la candidatura ${id} en fase Cribado.</span> Vuelve a consultar la vista: sube el contador sin tocar la vista.`;showQ()}})();
 
 /* ====== relaciones ====== */
 (function(){const tabs=[['dim_cliente',['cliente_id','empresa','sector','region']],['fact_facturas',['factura_id','cliente_id','fecha','importe']],['dim_fecha',['fecha','mes','trimestre']]];

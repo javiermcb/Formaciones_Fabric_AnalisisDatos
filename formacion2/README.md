@@ -36,7 +36,7 @@ Se conserva la V1 sin cambios en `v1/`. La V2 reorienta la segunda mitad hacia u
 | Bloque | Diapositivas |
 |---|---|
 | Gancho y qué es | 1 Portada · 2 Palabras antes · 3 Ruta · 4 Viaje del dato · 5 Aplicación vs Warehouse · 6 Dónde encaja en Fabric |
-| Tablas y SQL | 7 Explorador · 8 SQL · 9 Elegir tablas y campos · 10 Agrupar · 11 Vistas |
+| Tablas y SQL | 7 Explorador · 8 SQL · 9 Elegir tablas y campos · 10 Agrupar · 11 Vistas (qué es, qué no es, para qué sirve) |
 | Conectar con Power BI | 12 Modelo semántico · 13 Del Warehouse a Power BI (crear modelo, modos, informes, apps, confianza) · 14 Informe simulado |
 | Contar y hacerlo bien | 15 Una historia con los datos · 16 Quién trabaja con Fabric y Power BI (perfiles y habilidades) · 17 Buenas prácticas |
 | Cierre | 18 Palabras después · 19 Tres ideas · 20 Fuentes · 21 Propiedad |
