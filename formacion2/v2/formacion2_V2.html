@@ -513,7 +513,7 @@ a{color:var(--petrol)}
       <div class="jsim" id="mdSim"></div>
     </div>
   </div>
-  <p class="foot">Cuál usa nuestro modelo: se comprueba en la demo. Fuente: Microsoft Learn, «Direct Lake overview» y documentación de modos de almacenamiento de Power BI.</p>
+  <p class="foot">Cuál usa nuestro modelo: lo vemos en nuestro entorno. Fuente: Microsoft Learn, «Direct Lake overview» y documentación de modos de almacenamiento de Power BI.</p>
 </div></section>
 
 </div>
@@ -682,7 +682,7 @@ const SV=(label,inner,vb)=>`<svg viewBox="${vb||'0 0 400 240'}" preserveAspectRa
    +'<path class="ar" d="M165 102 H236"/>'+person(300)+Tx('t',300,150,'Rol: Norte')+Tx('m',300,168,'ve solo Norte')+Tx('m',200,226,'el filtro se aplica a quien solo ve el contenido'))};
  journey({key:'Del Warehouse a Power BI',list:'#pbList',def:'#pbDef',fig:'#pbFig',sim:'#pbSim',svg,items:[
   ['Crear el modelo','Desde el Warehouse','<p>Se abre el Warehouse, se elige <b>New semantic model</b>, se pone nombre, se elige el espacio de trabajo y se marcan las tablas. Después se editan relaciones y medidas. Fabric no añade solo las tablas nuevas ni sincroniza el modelo con el Warehouse.</p>','Montar el catálogo de una tienda: eliges qué productos entran, y si llegan nuevos, hay que añadirlos tú.'],
-  ['Elegir cómo viajan los datos','Import, DirectQuery o Direct Lake','<p>Import copia los datos al modelo. DirectQuery consulta al origen en cada gráfico. Direct Lake lee las tablas de OneLake y su actualización es sobre todo de metadatos; requiere capacidad de Fabric. Cuál usa nuestro modelo, se ve en la demo.</p>','Fotocopiar el libro, llamar al archivo o ir a la estantería: tres formas de tener el dato a mano.'],
+  ['Elegir cómo viajan los datos','Import, DirectQuery o Direct Lake','<p>Import copia los datos al modelo. DirectQuery consulta al origen en cada gráfico. Direct Lake lee las tablas de OneLake y su actualización es sobre todo de metadatos; requiere capacidad de Fabric. Cuál usa nuestro modelo, lo vemos en nuestro entorno.</p>','Fotocopiar el libro, llamar al archivo o ir a la estantería: tres formas de tener el dato a mano.'],
   ['Crear los informes','Sobre un modelo compartido','<p>En el escenario de autoservicio gestionado que describe Microsoft, el modelo se publica una vez, en un espacio propio, y quienes crean informes se conectan en vivo a él. Si no tienen acceso, piden permiso Build.</p>','Un recetario oficial: cada cocinero prepara su plato, pero todos usan las mismas recetas.'],
   ['Compartir','Con apps','<p>Microsoft recomienda distribuir el contenido con apps. Quien entra por la app tiene acceso de solo lectura y no ve los elementos del espacio de trabajo. La licencia necesaria depende de la capacidad: revisarla antes.</p>','La carta de un restaurante: los clientes ven el menú, no la cocina.'],
   ['Dar confianza','Certificar y proteger filas','<p>Un modelo puede promocionarse o certificarse; certifican solo los revisores que autoriza la administración de Fabric. La seguridad por filas (RLS) filtra qué filas ve cada rol, pero solo se aplica a quien tiene el rol de visor, no a Admin, Member o Contributor.</p>','Un sello de calidad en el producto y una llave que solo abre las estanterías de tu zona.']]})})();
