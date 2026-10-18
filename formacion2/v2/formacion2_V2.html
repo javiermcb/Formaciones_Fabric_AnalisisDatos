@@ -414,13 +414,6 @@ a{color:var(--petrol)}
   <p class="foot">Fuente: Microsoft Learn (rendimiento y seguridad del Warehouse, guía de esquema en estrella, diseño de informes, accesibilidad, apps y seguridad por filas). Reglas de acceso de nuestro equipo: por completar por el ponente.</p>
 </div></section>
 
-<section class="slide" data-title="Demo en vivo"><div class="wrap">
-  <p class="eyebrow">Demo en vivo · en nuestro entorno</p>
-  <h2>Ahora lo hacemos de verdad</h2>
-  <p class="lead">Pulsa un paso al completarlo.</p>
-  <div class="grid g2" id="demo"></div>
-</div></section>
-
 <section class="slide" data-title="Palabras después"><div class="wrap">
   <p class="eyebrow">Para cerrar</p>
   <h2>¿Y ahora, de dónde sale el número de tu informe?</h2>
@@ -527,7 +520,7 @@ a{color:var(--petrol)}
 
 <div id="nav"><div id="bar"></div>
   <span class="own">Formación interna · Del dato al informe · Material propiedad de Javier Martín-Consuegra</span>
-  <span id="cnt">1 / 27</span><button id="prev" aria-label="Anterior">←</button><button id="next" aria-label="Siguiente">→</button>
+  <span id="cnt">1 / 26</span><button id="prev" aria-label="Anterior">←</button><button id="next" aria-label="Siguiente">→</button>
 </div>
 
 <script>
@@ -1005,10 +998,6 @@ RC.forEach(([n,o])=>{const b=document.createElement('button');b.className='btn g
   const h=(o,c)=>{const mx=Math.max(1,...Object.values(o));return Object.entries(o).map(([k,v])=>`<div class="bar"><span>${k.length>7?k.slice(5):k}</span><span class="t"><i class="${c}" style="width:${v/mx*100}%"></i></span><b>${fmt(v)}</b></div>`).join('')};
   $('#rM').innerHTML=h(mes,'');$('#rS').innerHTML=h(sec,'a')}
  ['#rReg','#rSec','#rEst'].forEach(s=>$(s).onchange=draw);draw()})();
-
-/* ====== demo ====== */
-(function(){const S=[['Abrir el espacio de trabajo y el Warehouse','Ver el nombre del Warehouse y sus esquemas.'],['Recorrer las tablas','Una tabla de cada aplicación: columnas y claves.'],['Nueva consulta SQL','Un SELECT TOP 100, un filtro y, si hay tiempo, un JOIN.'],['Crear una vista','CREATE VIEW con un nombre claro.'],['Nuevo modelo semántico','Elegir tablas, ver relaciones y crear una medida.'],['Comprobar el modo de almacenamiento','Dónde se ve y qué significa para nosotros.'],['Crear un informe sobre el modelo','Un gráfico y un filtro apoyados en el modelo.'],['Repasar la historia','Contexto, mensaje, foco y acción.'],['Ver cómo se comparte','App, permisos y seguridad por filas.']];
- const box=$('#demo');S.forEach(([a,b])=>{const d=document.createElement('button');d.className='check';d.innerHTML=`<span class="bx"></span><span><b>${a}</b><br><span class="mut small">${b}</span></span>`;d.onclick=()=>d.classList.toggle('done');box.appendChild(d)})})();
 
 /* init */
 const h=parseInt((location.hash||'').slice(1),10);show(h>=1&&h<=slides.length?h-1:0);
