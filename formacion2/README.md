@@ -49,3 +49,9 @@ Quitadas de la secuencia principal: «Demo en vivo» (la demo se hace aparte, en
 - Buenas prácticas: guías de rendimiento y seguridad del Warehouse, esquema en estrella, diseño de informes, accesibilidad, apps, endorsement y RLS.
 - Storytelling: consejos de diseño de Microsoft Learn y K. Nussbaumer Knaflic, *Storytelling with Data* (2015; resumen contrastado solo con fuentes secundarias).
 - No se encontró en Microsoft Learn una guía de convenciones de nombres para el Warehouse, así que no se incluye.
+
+### Ajustes de maquetación de la V2 (19/10/2026)
+- Esquemas de las diapositivas con lista a la izquierda: de 2 a 3 veces más grandes; se ajustan solos al espacio disponible.
+- Los textos de fuente ya no se superponen con el contenido: la tipografía escala con el alto de la ventana y, si falta sitio, la diapositiva se desplaza en lugar de solaparse.
+- Barra inferior más estrecha.
+- «Tres ideas» ocupa toda la diapositiva, con una frase de cierre: «Una sola versión de la verdad, contada como una historia».
