@@ -652,7 +652,8 @@ function selStage(i){stCur=Math.max(0,Math.min(ST.length-1,i));flowBtns.forEach(
   const step=()=>{if(i>=venc.length){clearInterval(timer);out(`<p>Tras abrir ${venc.length} fichas salen <b>${tot}</b> facturas vencidas. Con más datos, más fichas.</p>`);return}
    $('#fi'+i).classList.add('open');acc+=venc[i].n;i++;$('#cA').textContent=i;$('#cV').textContent=acc};
   if(reduce){while(i<=venc.length)step()}else timer=setInterval(step,320)}
- $$('.concept').forEach(b=>b.onclick=()=>{pick(b.dataset.k);toDetail()})})();
+ $$('.concept').forEach(b=>b.onclick=()=>{pick(b.dataset.k);toDetail()});
+ onShow('#qFig',()=>pick('app'))})();
 
 /* ====== Fabric: capas ====== */
 (function(){const L=[
